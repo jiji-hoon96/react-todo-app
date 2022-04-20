@@ -1,18 +1,15 @@
 import { atom, selector } from "recoil";
 
-export const minuteState = atom({
-  key: "minutes",
-  default: 0,
-});
-
-export const hourSelector = selector<number>({
-  key: "hours",
-  get: ({ get }) => {
-    const hours = get(minuteState);
-    return hours / 60;
-  },
-  set: ({ set }, newValue) => {
-    const minutes = Number(newValue) * 60;
-    set(minuteState, minutes);
-  },
+export const toDoState = atom({
+  key: "toDo",
+  default: [
+    "먹기",
+    "운동하기",
+    "청소하기",
+    "강아지산책하기",
+    "헬스하기",
+    "샤워하기",
+    "잠자기",
+    "공부하기",
+  ],
 });
